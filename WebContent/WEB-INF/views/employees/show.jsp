@@ -5,14 +5,14 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${emloyee != null}">
-                <h2> id : ${emloyee.id} の従業員情報詳細ページ </h2>
+            <c:when test="${employee != null}">
+                <h2> id : ${employee.id} の従業員情報詳細ページ </h2>
                 <table>
                     <tbody>
                         <tr>
                             <th>社員番号</th>
 
-                            <td><c:out value = "${emloyee.code}"/></td>
+                            <td><c:out value = "${employee.code}"/></td>
                         </tr>
                         <tr>
                             <th>氏名</th>

@@ -64,18 +64,17 @@ public class ReportsCreateServlet extends HttpServlet {
                 request.setAttribute("_token", request.getSession().getId());
                 request.setAttribute("report", r);
                 request.setAttribute("error", errors);
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/new.jsp");
+                rd.forward(request, response);
+            } else {
+                em.getTransaction().begin();
+                em.persist(r);
+                em.getTransaction().commit();
+                em.close();
+                request.getSession().setAttribute("flush", "登録が完了しました。");
+
+                response.sendRedirect(request.getContextPath() + "/reports/index");
             }
-
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/new.jsp");
-            rd.forward(request, response);
-        } else {
-            em.getTransaction().begin();
-            em.persist(r);
-            em.getTransaction().commit();
-            em.close();
-            request.getSession().setAttribute("flush", "登録が完了しました。");
-
-            response.sendRedirect(request.getContextPath() + "/reports/index");
         }
     }
 

@@ -51,7 +51,7 @@ public class ReportsIndexServlet extends HttpServlet {
 
         em.close();
 
-        request.setAttribute("reports_count", reports_count);
+        request.setAttribute("report", reports);
         request.setAttribute("reports_count", reports_count);
         request.setAttribute("page", page);
         if(request.getSession().getAttribute("flush") != null) {
@@ -59,7 +59,7 @@ public class ReportsIndexServlet extends HttpServlet {
             request.getSession().removeAttribute("flush");
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/reports/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/index.jsp");
         rd.forward(request, response);
     }
 
