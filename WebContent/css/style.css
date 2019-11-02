@@ -105,7 +105,7 @@ tr.row1 {
 }
 
 tr.row0 {
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
 select {
@@ -159,4 +159,8 @@ table#report_list .report_action {
 
 pre {
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
+}
+
+h3 {
+    font-size: lager;
 }

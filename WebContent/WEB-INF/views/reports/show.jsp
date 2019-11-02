@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:import url="/WEB-INF/views/layout/app.jsp">
-    <:param name="content">
+    <c:param name="content">
         <c:choose>
             <c:when test="${report != null}">
                 <h2>日報詳細ページ</h2>
@@ -26,13 +26,13 @@
                             <th>登録日時</th>
 
                             <td>
-                                <pre><fmt:formatDate value="${report.create_at}" pattern="yyyy-MM-dd HH:mm:ss"/></pre>
+                                <pre><fmt:formatDate value="${report.created_at}" pattern="yyyy-MM-dd HH:mm:ss"/></pre>
                             </td>
                         </tr>
                         <tr>
                             <th>更新日時</th>
                             <td>
-                                <fmt:formatDate value="${report.update_at}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                <fmt:formatDate value="${report.updated_at}" pattern="yyyy-MM-dd HH:mm:ss"/>
                             </td>
                         </tr>
                     </tbody>
@@ -47,5 +47,5 @@
             </c:otherwise>
         </c:choose>
         <p><a href="<c:url value='/reports/index'/>">一覧に戻る</a></p>
-    </:param>
+    </c:param>
 </c:import>

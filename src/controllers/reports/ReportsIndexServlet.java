@@ -51,11 +51,11 @@ public class ReportsIndexServlet extends HttpServlet {
 
         em.close();
 
-        request.setAttribute("report", reports);
+        request.setAttribute("reports", reports);
         request.setAttribute("reports_count", reports_count);
         request.setAttribute("page", page);
         if(request.getSession().getAttribute("flush") != null) {
-            request.setAttribute("flush", request.getSession().getAttribute("flish"));
+            request.setAttribute("flush", request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
         }
 

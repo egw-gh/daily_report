@@ -25,7 +25,18 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getReportsCount",
             query = "SELECT COUNT(r) FROM Report As r"
+            ),
+
+    @NamedQuery(
+            name = "getMyAllReports",
+            query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
+            ),
+
+    @NamedQuery(
+            name = "getMyReportsCount",
+            query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
             )
+
 })
 
 @Entity
@@ -49,10 +60,10 @@ public class Report {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "create_at", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
 
-    @Column(name = "update_at", nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
     public Integer getId() {
@@ -91,7 +102,7 @@ public class Report {
         return content;
     }
 
-    public void setContent(String cotent) {
+    public void setContent(String content) {
         this.content = content;
     }
 
